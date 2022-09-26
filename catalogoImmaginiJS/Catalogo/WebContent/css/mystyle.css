@@ -1,0 +1,48 @@
+*{
+	border:0;
+	margin:0;
+}
+header{
+	padding: 30px;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  background:#a2f9fd;
+  color: white;
+  font-size: 15 px;
+}
+label{
+	color:black;
+	font-size: 25px;
+}
+input{
+  display:block;
+  width:98%;
+  padding:1px;
+  margin: 0.7px 0 0.8px;
+  font-size:20px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+input[type=button]{
+	width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 1px 0;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=button]:hover{
+  background-color: #006400;
+}
+
+.formspace{
+	border: 2px solid lightgrey;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 20px;
+	border-radius: 4px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" media="all" href="./css/home.css">
+ <script src="utils.js" charset="utf-8" defer></script>
+ <script src="category.js" charset="utf-8" defer></script>
+</head>
+<header>
+	<h1>Catalogo immagini</h1>
+</header>
+<body>
+	<div align="right">
+	<button id="Logout">Logout</button>
+	</div>
+	
+	<h1>BENVENUTI NEL CATALOGO DI IMMAGINI</h1>
+	
+	<table>
+	  <tr>
+	    <td><table id ="categoryList" class="boxed" >
+	        <tbody id="category">
+	        	<tr class="draggable">
+	        		<td id="ID"></td>
+	        		<td id="name"></td>
+	        	</tr>
+	        <tbody>
+	   	    </table>
+	    </td>
+	    </tr>
+	    </table>
+	    <div align="right">
+		<button id="SaveCategory">Save</button>
+		</div>
+		
+	<div id="form">	
+			<p id="title"> Create a new Category</p>
+			<p>	If you want to create a primary category you can insert nothing in the box 'Father'
+			</p>
+				<form id="insertCategory" action="#">
+					<fieldset>
+						Name: <input type="text" name="Name" required> <br> 
+						FatherID: <input type="number" name="FatherID"><br>
+						<button id="submit" value="submit" name="submit" class="submit">Create</button>
+					</fieldset>
+				</form>
+	</div>
+</body>
+</html>
