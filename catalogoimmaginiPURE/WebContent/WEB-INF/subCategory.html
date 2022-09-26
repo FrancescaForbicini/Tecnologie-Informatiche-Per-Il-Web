@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all"
+ href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" /></head>
+<body>
+<div th:fragment="list(category)">
+	<div th:if="${category.primaryCategory == true}" th:class="(${category.primaryCategory})? 'primaryCategory' " >
+		<span th:text="${category.ID + ' - ' + category.categoryName}"></span> 
+		<div id="prova" th:if="${!category.isSelected() && !category.isDestination()}"> 
+			<a th:href="@{/MoveCategory(ID=${category.ID})}">Move</a>
+		</div>
+		<div id="prova1" th:if="${category.isDestination() && !category.isSelected() }">
+			<a th:href="@{/MoveCategoryHere(ID=${category.ID})}">Move Here</a>
+		</div>
+	</div>
+	<ul th:unless="${#lists.isEmpty(category.subCategory)}" class="subCategory">
+		<li th:each="sub : ${category.subCategory}"> 
+			<div id="prova" th:if="${!sub.isSelected()}">
+				<span id="category" th:text = "${sub.getID() + '-' + sub.getcategoryName()}"></span>
+			</div>
+			<div id="prova" th:if="${sub.isSelected()}">
+				<span id="categorymoved" th:text = "${sub.getID() + '-' + sub.getcategoryName()}"></span>
+			</div>
+			<div id="prova1" th:if="${!sub.isSelected() && !sub.isDestination()}">
+				<a th:href="@{/MoveCategory(ID=${sub.ID})}">Move</a>
+			</div>
+			<div id="prova1" th:if="${sub.isDestination() && !sub.isSelected()}">
+				<a th:href="@{/MoveCategoryHere(ID=${sub.ID})}">Move Here</a>
+			</div>
+			<ul th:replace="this::list(${sub})"></ul></li>
+			
+	</ul>
+</div>
+</body>
+</html>

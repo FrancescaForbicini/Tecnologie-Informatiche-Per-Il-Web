@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link rel="stylesheet" type="text/css" media="all"
+ href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+</head>
+<header>
+	<h1>Catalogo immagini</h1>
+</header>
+<body>
+	<div id="logout" align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	<h2>BENVENUTI NEL CATALOGO DI IMMAGINI</h2>
+	<ul class="tree">
+		<li th:each = "category : ${primaryCategory}" 
+			th:insert="@{WEB-INF/subCategory.html}::list(category)"></li>
+	</ul>
+
+	<div class="formdiv">
+		<p id="title"> Insert Category </p>
+		<form action="#" th:action="@{/InsertCategory}" method="POST">
+			<fieldset>
+				<p> Name 
+						<input type="text" name = "name" required> 
+				</p>
+				<p>
+					<label for="allcategories">Choose a category:</label> <select
+						name="categoryId" id="categoryId">
+						<option th:value= "${0}" th:text="${'---'}" > 
+						<option th:each="cat : ${allCategory}" th:value="${cat.ID}"
+							th:text="${cat.categoryName}"></option>
+					</select>
+				</p>
+				<input type="submit" id="create" name ="Insert Category" value="Create">
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
